@@ -1,1 +1,219 @@
-https://sherish08.github.io/my-video-hub/
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Video Hub</title>
+<meta name="description" content="Watch, discover and enjoy videos at My Video Hub.">
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #111;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+header {
+  background: #1b1b1b;
+  padding: 18px 6%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  border-bottom: 2px solid #ff333b;
+}
+
+.logo {
+  color: #ff333b;
+  font-size: 23px;
+  font-weight: bold;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 8px;
+  font-size: 14px;
+}
+
+nav a:hover { color: #ff333b; }
+
+.hero {
+  text-align: center;
+  padding: 55px 15px;
+  background: linear-gradient(#222, #111);
+}
+
+.hero h1 { font-size: 34px; }
+.hero h1 span { color: #ff333b; }
+
+.subscribe {
+  display: inline-block;
+  background: #ff333b;
+  color: white;
+  padding: 12px 22px;
+  border-radius: 5px;
+  text-decoration: none;
+  margin-top: 15px;
+}
+
+main {
+  max-width: 1100px;
+  margin: auto;
+  padding: 25px 15px;
+}
+
+.search {
+  width: 100%;
+  padding: 14px;
+  background: #222;
+  color: white;
+  border: 1px solid #444;
+  border-radius: 5px;
+  margin-bottom: 25px;
+}
+
+h2 {
+  color: #ff333b;
+  border-left: 4px solid #ff333b;
+  padding-left: 10px;
+}
+
+.videos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 22px;
+}
+
+.card {
+  background: #1b1b1b;
+  border-radius: 10px;
+  padding: 12px;
+}
+
+.card iframe {
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  border: 0;
+  border-radius: 8px;
+}
+
+.card p { color: #aaa; font-size: 13px; }
+
+.about {
+  margin-top: 45px;
+  line-height: 1.7;
+}
+
+.about a { color: #ff333b; }
+
+footer {
+  text-align: center;
+  padding: 30px;
+  background: #1b1b1b;
+  color: #aaa;
+  margin-top: 40px;
+}
+
+footer a { color: #ff333b; }
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">▶ MY VIDEO HUB</div>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#videos">Videos</a>
+    <a href="about.html">About</a>
+  </nav>
+</header>
+
+<section class="hero" id="home">
+  <h1>Watch. <span>Discover.</span> Enjoy.</h1>
+  <p>Your favorite videos in one place.</p>
+  <a class="subscribe"
+     href="https://www.youtube.com/@themeltingpoint-g8k"
+     target="_blank" rel="noopener">
+     Subscribe on YouTube
+  </a>
+</section>
+
+<main>
+  <input class="search" id="search"
+         type="text" placeholder="Search videos...">
+
+  <h2 id="videos">Latest Videos</h2>
+
+  <div class="videos" id="videoList">
+
+    <div class="card">
+      <iframe src="https://www.youtube.com/embed/H5VfIhDRTso"
+              title="Video 1" loading="lazy"
+              allowfullscreen></iframe>
+      <h3>My Video #1</h3>
+      <p>Watch and enjoy this video.</p>
+    </div>
+
+    <div class="card">
+      <iframe src="https://www.youtube.com/embed/dytlGAgdjI0"
+              title="Video 2" loading="lazy"
+              allowfullscreen></iframe>
+      <h3>My Video #2</h3>
+      <p>Discover more interesting videos.</p>
+    </div>
+
+    <div class="card">
+      <iframe src="https://www.youtube.com/embed/HX_Jff8pYm0"
+              title="Video 3" loading="lazy"
+              allowfullscreen></iframe>
+      <h3>My Video #3</h3>
+      <p>Enjoy watching at My Video Hub.</p>
+    </div>
+
+  </div>
+
+  <section class="about">
+    <h2>About My Video Hub</h2>
+    <p>
+      Welcome to My Video Hub! This website brings together
+      videos for viewers to watch, discover, and enjoy.
+    </p>
+    <p>
+      Learn more about our website on our
+      <a href="about.html">About page</a>.
+    </p>
+  </section>
+</main>
+
+<footer>
+  <p>© 2026 My Video Hub. All Rights Reserved.</p>
+  <p>
+    <a href="about.html">About Us</a> |
+    <a href="https://www.youtube.com/@themeltingpoint-g8k"
+       target="_blank" rel="noopener">YouTube Channel</a>
+  </p>
+</footer>
+
+<script>
+const search = document.getElementById("search");
+
+search.addEventListener("input", function() {
+  const query = this.value.toLowerCase();
+
+  document.querySelectorAll(".card").forEach(card => {
+    card.style.display =
+      card.innerText.toLowerCase().includes(query)
+      ? "block" : "none";
+  });
+});
+</script>
+
+</body>
+</html>
+
